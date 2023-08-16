@@ -1,0 +1,30 @@
+[
+    {
+        "account_title": "ملت",
+        "account_number": "3443655465",
+        "shaba_number": "6464645",
+        "port_status": true,
+        "card_reader_status": false
+    },
+    {
+        "account_title": "ملت",
+        "account_number": "3443655465",
+        "shaba_number": "6464645",
+        "port_status": true,
+        "card_reader_status": false
+    },
+    {
+        "account_title": "ملت",
+        "account_number": "3443655465",
+        "shaba_number": "6464645",
+        "port_status": true,
+        "card_reader_status": false
+    },
+    {
+        "account_title": "ملت",
+        "account_number": "3443655465",
+        "shaba_number": "6464645",
+        "port_status": true,
+        "card_reader_status": false
+    }
+]
