@@ -51,6 +51,26 @@ function search(){
     data.value = data.value.filter(el => el.port_status == false)
   }
 }
+function more(){
+  console.log('more')
+  data.value.push(
+    {
+        "id":uuidv4(),
+        "account_title": "ملت",
+        "account_number": "3443655465",
+        "shaba_number": "6464645",
+        "port_status": true,
+        "card_reader_status": false
+    }
+  )
+  console.log(data.value)
+}
+
+function uuidv4() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}
 </script>
 
 <template>
@@ -58,12 +78,9 @@ function search(){
     <div class="container">
       <h1>حساب بانکی</h1>
       <hr />
-      <button @click="remove" type="button" class="btn btn-primary">حذف</button>
+      <button @click="remove" type="button" class="btn btn-danger">حذف</button>
       <hr />
-      <form class="row g-3">
-        <div class="col-auto">
-          <label for="staticEmail2">جستجو</label>
-        </div>
+      <form class="row g-3">        
         <div class="col-auto">
           <select v-model="card_reader_status" class="form-select" aria-label="Default select example">
             <option value="not" selected>همه کارت خوان ها</option>
@@ -104,10 +121,16 @@ function search(){
           </tr>
         </tbody>
       </table>
+      <div class="more">
+        <button @click="more" type="button" class="btn btn-light">مشاهده بیشتر</button>
+      </div>
     </div>
   </main>
 </template>
 <style scoped>
+.more{
+  text-align: center;
+}
 .red td {
   background-color: rgb(228, 174, 174);
 }
