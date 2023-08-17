@@ -5,6 +5,8 @@ let isRed = ref(false);
 let xc_id = ref(null);
 let xarr = ref([])
 
+let data = ref(myjson)
+
 function redColor(e,x_id){
   if(e.target.checked){
     if(! xarr.value.includes(x_id)){
@@ -16,12 +18,24 @@ function redColor(e,x_id){
     xarr.value.splice(xarr.value.indexOf(x_id),1)
   }
 }
+function remove(){
+ 
+  xarr.value.forEach((xa) => {    
+    data.value = data.value.filter(el => el.id != xa )
+    console.log(data.value)
+    
+  })  
+  
+}
 </script>
 
 <template>
   <main>
     <div class="container">
       <h1>حساب بانکی</h1>
+      <hr/>
+      <button @click="remove" type="button" class="btn btn-primary">حذف</button>
+      <hr />
       <table class="table">
         <thead>
           <tr>
@@ -34,7 +48,7 @@ function redColor(e,x_id){
           </tr>
         </thead>
         <tbody>
-          <tr :class="{red:xarr.includes(x.id) }" v-for="x in myjson" :key="x.id">
+          <tr :class="{red:xarr.includes(x.id) }" v-for="x in data" :key="x.id">
             <td><input type="checkbox" @change="redColor($event,x.id)"/></td>
             <td>{{ x.account_title }}</td>
             <td>{{ x.account_number }}</td>
